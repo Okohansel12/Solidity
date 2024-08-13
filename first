@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.8; // This is to know how to comment
+
+contract simplestorage {
+    // this gets intislized as zero
+    // set the view to public
+    uint256 favoriteNumber;
+    
+
+    // like that of a class in oop in js and python
+
+    struct People{
+        uint256 favoriteNumber;
+        string name;
+    }
+
+    People[] public people;
+    // basic function parameter for javascript
+    function store (uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+
+    }
+
+    function retrieve() public view returns (uint256){
+        return favoriteNumber;
+    }
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        People memory newPerson = People({favoriteNumber: _favoriteNumber, name: _name});
+        people.push(newPerson);
+    }
+
+
+}
